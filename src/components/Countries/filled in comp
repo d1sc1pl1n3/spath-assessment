@@ -1,0 +1,22 @@
+<>
+            <CountryCom role="button" onClick={() => setIsToggled((prevState) => !prevState)}>
+              <h1>{country.name}</h1>
+              <AnimatePresence>
+                {isToggled && (
+                  <Accordion
+                    style={{ overflow: 'hidden' }}
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                  >
+                    <p>
+                      Currency: <b>{country.currencies[0].symbol}</b> - {country.currencies[0].name}
+                    </p>
+
+                    <p>CountryFlag: </p>
+                    <Flag src={country.flag.svgFile} />
+                  </Accordion>
+                )}
+              </AnimatePresence>
+            </CountryCom>
+          </>
